@@ -11,7 +11,7 @@ init()
 os.system('cls')
 
 server = socket(AF_INET,SOCK_STREAM)
-auth = "orwvobnzmrfmwqaazeyflubnhcecipnn"
+auth = ""
 encryption = cryptorubika.encryption(auth)
 bot = api.bot()
 listlog = []
