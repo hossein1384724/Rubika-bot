@@ -1,8 +1,3 @@
-# +------------------------------+
-# |         Shad class           |
-# |         version: 4 beta 1    |
-# |        made: DeghyOS         |
-# +------------------------------+
 import asyncio
 import base64
 import glob
@@ -46,7 +41,7 @@ class encryption:
         return n
 
     def encrypt(self, text):
-        raw = pad(text.encode('UTF-8'), AES.block_size)
+        raw = pad(text.encode('utf-8'),AES.block_size)
         aes = AES.new(self.key, AES.MODE_CBC, self.iv)
         enc = aes.encrypt(raw)
         result = base64.b64encode(enc).decode('UTF-8')

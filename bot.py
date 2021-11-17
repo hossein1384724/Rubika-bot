@@ -5,15 +5,15 @@ import os
 import requests
 import threading
 import cryptorubika
-import api
+import rubika
 from colorama import init,Fore
 init()
 os.system('cls')
 
 server = socket(AF_INET,SOCK_STREAM)
-auth = ""
+auth = "orwvobnzmrfmwqaazeyflubnhcecipnn"
+api = rubika.bot(auth,user_guid="u0CKH7902c3b29888c6cc82cd328a964",lang="en-us")
 encryption = cryptorubika.encryption(auth)
-bot = api.bot()
 listlog = []
 server.connect(("web.rubika.ir",443))
 
@@ -27,10 +27,8 @@ def updatelog(mode="info",text=""):
 
 def service():
     updatelog(mode="info",text="Starting bot rubika")
-    getdcmess = requests.post("https://getdcmess.iranlms.ir")
-    data = requests.post("https://messengerg2c32.iranlms.ir/",data='{"api_version":"5","auth":"orwvobnzmrfmwqaazeyflubnhcecipnn","data_enc":"zFFCUV7Ur2TtwIcscHTZGOZ7wv9svWqKWoRcifhJJ1j1FuGJ9K0Bub8pFzLk/kQp+IxRabd7AxD1kX8nnAXhVyH+FSB8paM3JPvDvPa0mwy1ezYMq6jtgpjJsLHp7p6whajIDremB0ZUYH1DEXmyigGjF/2T0jTesgXcUDE/FLp4kxO9lGYM1cyq9wH9XBdPDnC7l3qpv1qtCOPqf8HYEA=="}')
-    updatelog(mode="info",text=encryption.decrypt('orwvobnzmrfmwqaazeyflubnhcecipnn","data_enc":"zFFCUV7Ur2TtwIcscHTZGOZ7wv9svWqKWoRcifhJJ1j1FuGJ9K0Bub8pFzLk/kQp+IxRabd7AxD1kX8nnAXhVyH+FSB8paM3JPvDvPa0mwy1ezYMq6jtgpjJsLHp7p6whajIDremB0ZUYH1DEXmyigGjF/2T0jTesgXcUDE/FLp4kxO9lGYM1cyq9wH9XBdPDnC7l3qpv1qtCOPqf8HYEA=='))
-    updatelog(mode="Response",text=encryption.decrypt(data.text.split('"')[3]))
+    updatelog(mode="info",text=f"Lang Rubika For {api._lang}")
+    updatelog(mode="Response",text=f"{api.UserInfo.text}")
 
 def ui():
     while True:
